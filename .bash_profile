@@ -1,4 +1,5 @@
 source /usr/local/git/contrib/completion/git-completion.bash
+source ${HOME}/client_aliases.bash
 
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
@@ -31,18 +32,10 @@ alias ls='/usr/local/bin/ls -h --color'
 alias ll='/usr/local/bin/ls -lv --group-directories-first'
 alias more='less'
 alias prolog='swipl'
-alias rmparse='rm -f ~/Sites/freepeople/fusebox/public/parsed/* && rm -f ~/Sites/freepeople/fusebox/htdocs/admin/parsed/*'
 
 alias cf='cd /Applications/ColdFusion10/cfusion/bin'
+alias cis194='cd ~/Dropbox/cis194/Haskell-cis194'
 alias db='cd ~/Dropbox'
-alias fp='cd ~/Sites/freepeople'
-alias hd='cd ~/Sites/hd'
-alias sstack='cd ~/Sites/sstack'
-alias tomcavage='cd ~/Sites/tomcavage'
-alias wa='cd ~/Sites/workarea'
-
-alias buildqa='cd ~/Sites/freepeople && ruby scripts/run_build.rb -e QA -p "FREEPEOPLE"'
-alias buildstage='cd ~/Sites/freepeople && ruby scripts/run_build.rb -e Staging -p "FREEPEOPLE"'
 
 alias ga='echo git add && git add'
 alias gb='echo git branch && git branch'
@@ -105,13 +98,6 @@ function cfstatus() {
 	sudo coldfusion status
 }
 
-function fprestart() {
-	sudo rm -f /Users/stomcavage/Sites/freepeople/fusebox/public/parsed/*
-	sudo rm -f /Users/stomcavage/Sites/freepeople/htdocs/admin/parsed/*
-	sudo coldfusion restart
-	sudo apachectl restart
-}
-
 function routefp() {
 	sudo route add -net 198.135.29.42/8 -interface ppp0
 }
@@ -122,3 +108,5 @@ function gbc() {
 
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 eval "$(rbenv init -)"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
