@@ -3,7 +3,7 @@ source ${HOME}/client_aliases.bash
 
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
-export PATH=/Applications/ColdFusion10/cfusion/bin:$HOME/.cabal/bin:$PATH
+export PATH=/Applications/ColdFusion10/cfusion/bin:$HOME/.cabal/bin:$HOME/bin:$PATH
 export PS1='[\u@\h \W]$ '
 export HOMEBREW_GITHUB_API_TOKEN=5e273d2c237e553d8ede97236a9a69954ce00110
 export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man

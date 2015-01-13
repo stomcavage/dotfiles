@@ -14,18 +14,20 @@ Plugin 'gmarik/vundle'
 
 " These are extra plugins, all on github, installed automatically
 " when run cmd :PluginInstall in vim; to update run :PluginUpdate
-"Plugin 'guns/vim-clojure-static'
+Plugin 'eagletmt/ghcmod-vim'
 Plugin 'kien/ctrlp.vim.git'
-Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CF-Utils'
 Plugin 'vim-scripts/VimClojure'
 
 call vundle#end()
     
-filetype plugin indent on
+filetype on
+filetype indent on
+filetype plugin on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,6 +82,8 @@ set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 " => Syntastic config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_ruby_checkers=['rubocop', 'rubylint']
+let g:syntastic_c_checkers=['splint', 'gcc']
+let g:syntastic_perl_checkers=['perl']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
