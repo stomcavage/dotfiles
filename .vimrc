@@ -14,12 +14,12 @@ Plugin 'gmarik/vundle'
 
 " These are extra plugins, all on github, installed automatically
 " when run cmd :PluginInstall in vim; to update run :PluginUpdate
+Plugin 'airblade/vim-gitgutter'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CF-Utils'
 Plugin 'vim-scripts/VimClojure'
 
@@ -79,6 +79,21 @@ set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Show the 80th column
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"if (exists('+colorcolumn'))
+"    set colorcolumn=80
+"    highlight ColorColumn ctermbg=DarkGray
+"endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GitGutter config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_escape_grep=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_ruby_checkers=['rubocop', 'rubylint']
@@ -105,6 +120,7 @@ augroup HiglightTODO
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
 augroup END
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
