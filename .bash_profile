@@ -41,7 +41,7 @@ alias ga='echo git add && git add'
 alias gb='echo git branch && git branch'
 alias gc='echo git checkout && git checkout'
 alias gd='echo git diff && git diff'
-alias gf='echo git fetch && git fetch'
+alias gf='echo git fetch origin && git fetch origin'
 alias gk='open /Applications/Tower.app'
 alias gco='echo git commit -m && git commit -m'
 alias gpop='git stash pop'
@@ -98,12 +98,12 @@ function cfstatus() {
 	sudo coldfusion status
 }
 
-function routefp() {
-	sudo route add -net 198.135.29.42/8 -interface ppp0
-}
-
 function gbc() {
     gb $1 && gc $1
+}
+
+function gp() {
+    echo git pull origin $1 && git pull origin $1
 }
 
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"

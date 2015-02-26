@@ -15,6 +15,7 @@ Plugin 'gmarik/vundle'
 " These are extra plugins, all on github, installed automatically
 " when run cmd :PluginInstall in vim; to update run :PluginUpdate
 Plugin 'airblade/vim-gitgutter'
+Plugin 'amdt/vim-niji'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'scrooloose/syntastic'
@@ -76,15 +77,6 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Show the 80th column
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"if (exists('+colorcolumn'))
-"    set colorcolumn=80
-"    highlight ColorColumn ctermbg=DarkGray
-"endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
