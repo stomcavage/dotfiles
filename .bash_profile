@@ -106,6 +106,29 @@ function gp() {
     echo git pull origin $1 && git pull origin $1
 }
 
+#------------------------------------------------------------------------------
+# Enable switching between elasticsearch 1.4 and 0.9 
+#------------------------------------------------------------------------------
+function use_ec09() {
+    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist;
+    sudo rm -rf /usr/local/var/elasticsearch/elasticsearch_$(whoami)/nodes/0/indices;
+    brew unlink elasticsearch090 && brew link --overwrite elasticsearch090;
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch090.plist;
+}
+
+function use_ec14() {
+    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch090.plist;
+    brew unlink elasticsearch && brew link --overwrite elasticsearch;
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist;
+}
+
+function which_ec() {
+    curl localhost:9200;
+}
+
+#------------------------------------------------------------------------------
+# Enable RVM to be able to switch Ruby versions
+#------------------------------------------------------------------------------
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 eval "$(rbenv init -)"
 
