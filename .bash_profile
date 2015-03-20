@@ -3,7 +3,7 @@ source ${HOME}/client_aliases.bash
 
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
-export PATH=/Applications/ColdFusion10/cfusion/bin:$HOME/.cabal/bin:$HOME/bin:$PATH
+export PATH=$HOME/yesod-bin-sandbox/.cabal-sandbox/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/bin:$PATH
 export PS1='[\u@\h \W]$ '
 export HOMEBREW_GITHUB_API_TOKEN=5e273d2c237e553d8ede97236a9a69954ce00110
 export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
@@ -127,10 +127,8 @@ function which_ec() {
 }
 
 #------------------------------------------------------------------------------
-# Enable RVM to be able to switch Ruby versions
+# Enable rbenv to be able to switch Ruby versions
 #------------------------------------------------------------------------------
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
