@@ -15,7 +15,7 @@ Plugin 'gmarik/vundle'
 " These are extra plugins, all on github, installed automatically
 " when run cmd :PluginInstall in vim; to update run :PluginUpdate
 Plugin 'airblade/vim-gitgutter'
-Plugin 'amdt/vim-niji'
+"Plugin 'amdt/vim-niji'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'moll/vim-node'
