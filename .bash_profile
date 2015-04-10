@@ -1,6 +1,7 @@
 source /usr/local/git/contrib/completion/git-completion.bash
 source ${HOME}/client_aliases.bash
 
+export EDITOR=`which vim`
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
 export PATH=$HOME/yesod-bin-sandbox/.cabal-sandbox/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/bin:$PATH
@@ -48,7 +49,7 @@ alias gpop='git stash pop'
 alias gpush='git stash'
 alias gs='echo git status && git status'
 
-alias tomcavage='ssh stomcavage@96.126.107.61'
+alias wikid='java -jar /Applications/wikidtoken/wikidtoken.jar &'
 
 #------------------------------------------------------------------------------
 # Custom functions
