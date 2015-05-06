@@ -1,4 +1,4 @@
-source ${HOME}/my_aliases.bash
+if [ -f ${HOME}/.bashrc ]; then source ${HOME}/.bashrc; fi
 
 if [ -f /usr/local/git/contrib/completion/git-completion.bash ]
 then
@@ -7,6 +7,9 @@ else
     echo WARNING: Unable to find git-completion.bash
 fi
 
+#------------------------------------------------------------------------------
+# Environment variables
+#------------------------------------------------------------------------------
 export CFLAGS='-g -Wall -O3'
 export EDITOR=`which vim`
 export HISTCONTROL=erasedups
@@ -16,17 +19,6 @@ export PS1='[\u@\h \W]$ '
 export HOMEBREW_GITHUB_API_TOKEN=5e273d2c237e553d8ede97236a9a69954ce00110
 export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
-
-#------------------------------------------------------------------------------
-# Bash options
-#------------------------------------------------------------------------------
-shopt -s cdable_vars
-shopt -s cdspell
-shopt -s cmdhist
-shopt -s histappend
-shopt -s nocaseglob
-
-set -o vi
 
 #------------------------------------------------------------------------------
 # Custom aliases
@@ -52,10 +44,12 @@ alias gpop='git stash pop'
 alias gpush='git stash'
 alias gs='echo git status && git status'
 
+if [ -f ${HOME}/my_aliases.bash ]; then source ${HOME}/my_aliases.bash; fi
+
 #------------------------------------------------------------------------------
 # Custom functions
 #------------------------------------------------------------------------------
-function _git_prompt() {
+function _git_prompt(){
     local git_status="`git status -unormal 2>&1`"
     if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
         if [[ "$git_status" =~ nothing\ to\ commit ]]; then
@@ -77,15 +71,15 @@ function _git_prompt() {
     fi
 }
 
-function gbc() {
+function gbc(){
     gb $1 && gc $1
 }
 
-function gp() {
+function gp(){
     echo git pull origin $1 && git pull origin $1
 }
 
-function _prompt_command() {
+function _prompt_command(){
     PS1="`_git_prompt`"'[\[\e[1;34m\]\u@\h \W\[\e[0m\]]$ '
 }
 
@@ -94,20 +88,20 @@ PROMPT_COMMAND=_prompt_command
 #------------------------------------------------------------------------------
 # Enable switching between elasticsearch 1.4 and 0.9 
 #------------------------------------------------------------------------------
-function use_ec09() {
+function use_ec09(){
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist;
     sudo rm -rf /usr/local/var/elasticsearch/elasticsearch_$(whoami)/nodes/0/indices;
     brew unlink elasticsearch090 && brew link --overwrite elasticsearch090;
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch090.plist;
 }
 
-function use_ec14() {
+function use_ec14(){
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch090.plist;
     brew unlink elasticsearch && brew link --overwrite elasticsearch;
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist;
 }
 
-function which_ec() {
+function which_ec(){
     curl localhost:9200;
 }
 
