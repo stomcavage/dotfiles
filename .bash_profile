@@ -1,6 +1,13 @@
-source /usr/local/git/contrib/completion/git-completion.bash
-source ${HOME}/client_aliases.bash
+source ${HOME}/my_aliases.bash
 
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]
+then
+    source /usr/local/git/contrib/completion/git-completion.bash
+else
+    echo WARNING: Unable to find git-completion.bash
+fi
+
+export CFLAGS='-g -Wall -O3'
 export EDITOR=`which vim`
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
@@ -29,14 +36,10 @@ alias date='date +"%A, %B %d, %Y - %r"'
 alias grep='grep -ri'
 alias grepl='grep -ril'
 alias h='history'
-alias ls='/usr/local/bin/ls -h --color'
-alias ll='/usr/local/bin/ls -lv --group-directories-first'
+alias ls='ls -h --color'
+alias ll='ls -lv --group-directories-first'
 alias more='less'
 alias prolog='swipl'
-
-alias cf='cd /Applications/ColdFusion10/cfusion/bin'
-alias cis194='cd ~/Dropbox/cis194/Haskell-cis194'
-alias db='cd ~/Dropbox'
 
 alias ga='echo git add && git add'
 alias gb='echo git branch && git branch'
@@ -48,8 +51,6 @@ alias gco='echo git commit -m && git commit -m'
 alias gpop='git stash pop'
 alias gpush='git stash'
 alias gs='echo git status && git status'
-
-alias wikid='java -jar /Applications/wikidtoken/wikidtoken.jar &'
 
 #------------------------------------------------------------------------------
 # Custom functions
@@ -76,29 +77,6 @@ function _git_prompt() {
     fi
 }
 
-function _prompt_command() {
-    PS1="`_git_prompt`"'[\[\e[1;34m\]\u@\h \W\[\e[0m\]]$ '
-}
-
-PROMPT_COMMAND=_prompt_command
-
-function cfrestart() {
-	sudo coldfusion restart
-	sudo apachectl restart
-}
-
-function cfstop() {
-	sudo coldfusion stop
-}
-
-function cfstart() {
-	sudo coldfusion start
-}
-
-function cfstatus() {
-	sudo coldfusion status
-}
-
 function gbc() {
     gb $1 && gc $1
 }
@@ -106,6 +84,12 @@ function gbc() {
 function gp() {
     echo git pull origin $1 && git pull origin $1
 }
+
+function _prompt_command() {
+    PS1="`_git_prompt`"'[\[\e[1;34m\]\u@\h \W\[\e[0m\]]$ '
+}
+
+PROMPT_COMMAND=_prompt_command
 
 #------------------------------------------------------------------------------
 # Enable switching between elasticsearch 1.4 and 0.9 
