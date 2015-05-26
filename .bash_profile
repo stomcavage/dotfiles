@@ -14,10 +14,9 @@ export CFLAGS='-g -Wall -O3'
 export EDITOR=`which vim`
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
-export PATH=$HOME/yesod-bin-sandbox/.cabal-sandbox/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/bin:$PATH
+export PATH=$HOME/.rbenv/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$PATH
 export PS1='[\u@\h \W]$ '
 export HOMEBREW_GITHUB_API_TOKEN=5e273d2c237e553d8ede97236a9a69954ce00110
-export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 
 #------------------------------------------------------------------------------

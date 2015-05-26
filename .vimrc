@@ -1,41 +1,20 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle 
+" => Set to Vim mode, not Vi mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
-filetype off
 
-" Include vundle package manager in runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-
-" This plugin is required to run vundle
-Plugin 'gmarik/vundle'
-
-" These are extra plugins, all on github, installed automatically
-" when run cmd :PluginInstall in vim; to update run :PluginUpdate
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'amdt/vim-niji'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'kien/ctrlp.vim.git'
-Plugin 'moll/vim-node'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/CF-Utils'
-Plugin 'vim-scripts/VimClojure'
-
-call vundle#end()
-    
-filetype on
-filetype indent on
-filetype plugin on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
+
 set history=9999     " how many lines to remember in history
 set autoread         " autoload any changes to current file
 set autoindent       " indent next line to match current line
@@ -114,7 +93,6 @@ augroup HiglightTODO
     autocmd!
     autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO', -1)
 augroup END
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
