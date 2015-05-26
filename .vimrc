@@ -26,16 +26,11 @@ set showmatch        " show matching brackets
 set mat=2            " tenths of second for matching bracket blink
 set ffs=dos,mac,unix " default file type ordering
 set expandtab        " use spaces instead of tabs
-set shiftwidth=4     " use 4 spaces for re-formatting
-set tabstop=4        " Use 4 spaces for tabs
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Search 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set ignorecase  " case-insensitive search
-set smartcase   " case-smart search
-set hlsearch    " highlight search results
+set shiftwidth=2     " how may spaces for re-formatting
+set tabstop=2        " how many spaces for tabs
+set ignorecase       " case-insensitive search with lowercase
+set smartcase        " case-sensitive searches with uppercase
+set hlsearch         " highlight search results
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,7 +52,7 @@ set guifont=Inconsolata:h14
 set laststatus=2
 
 " Format the status line
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ \ Column:\ %c%V
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
