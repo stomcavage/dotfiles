@@ -14,7 +14,7 @@ export CFLAGS='-g -Wall -O3'
 export EDITOR=`which vim`
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
-export PATH=$HOME/.rbenv/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.rbenv/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/Library/Haskell/bin:$PATH
 export PS1='[\u@\h \W]$ '
 export HOMEBREW_GITHUB_API_TOKEN=5e273d2c237e553d8ede97236a9a69954ce00110
 export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
@@ -24,6 +24,7 @@ export VIMCLOJURE_SERVER_JAR="$HOME/lib/vimclojure/server-2.3.6.jar"
 #------------------------------------------------------------------------------
 alias bc='bc -l'
 alias date='date +"%A, %B %d, %Y - %r"'
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias grep='grep -ri'
 alias grepl='grep -ril'
 alias h='history'
@@ -70,12 +71,31 @@ function _git_prompt(){
     fi
 }
 
+function cleanwws(){
+    wws && echo bundle exec rake db:drop && bundle exec rake db:drop
+}
+
+function importwws(){
+    wws && echo bundle exec rake import:$1 && bundle exec rake import:$1
+}
+
+function wwsdbdev(){
+    wws && echo mongo world_wide_stereo_development && mongo world_wide_stero_development
+}
+
 function gbc(){
     gb $1 && gc $1
 }
 
 function gp(){
     echo git pull origin $1 && git pull origin $1
+}
+
+function glast(){
+    local lastCommit=`git log -1 --pretty=%H`
+    echo git diff-tree --no-commit-id --name-only -r $lastCommit
+    echo
+    git diff-tree --no-commit-id --name-only -r $lastCommit
 }
 
 function _prompt_command(){

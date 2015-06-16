@@ -64,9 +64,11 @@ let g:gitgutter_escape_grep=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_ruby_checkers=['rubocop', 'rubylint']
 let g:syntastic_c_checkers=['splint', 'gcc']
 let g:syntastic_perl_checkers=['perl']
+let g:syntastic_ruby_checkers=['mri', 'rubocop', 'rubylint', 'reek']
+
+let g:syntastic_haskell_hdevtools_args='-g-Wall'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -77,8 +79,16 @@ let vimclojure#ParenRainbow=1
 let vimclojure#DynamicHighlighting=1
 "let vimclojure#WantNailgun=1
 let vimclojure#SplitPos="bottom"
-
 let lhs_markup="tex"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Haskell settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
