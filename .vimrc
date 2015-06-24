@@ -66,9 +66,18 @@ let g:gitgutter_escape_grep=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_c_checkers=['splint', 'gcc']
 let g:syntastic_perl_checkers=['perl']
-let g:syntastic_ruby_checkers=['mri', 'rubocop', 'rubylint', 'reek']
+let g:syntastic_ruby_checkers=['mri', 'rubocop', 'rubylint']
 
 let g:syntastic_haskell_hdevtools_args='-g-Wall'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+let NERDTreeCascadeOpenSingleChildDir=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,10 +94,18 @@ let lhs_markup="tex"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Haskell settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer>          <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands to simplify working with multiple windows
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,5 +127,5 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,haskell autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
