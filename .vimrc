@@ -64,6 +64,8 @@ let g:gitgutter_escape_grep=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_enable_perl_checker=1
+
 let g:syntastic_c_checkers=['splint', 'gcc']
 let g:syntastic_perl_checkers=['perl']
 let g:syntastic_ruby_checkers=['mri', 'rubocop', 'rubylint']
