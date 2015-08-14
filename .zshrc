@@ -49,7 +49,7 @@ ZSH_THEME="stomcavage"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler common-aliases git git-extras rails ruby)
+plugins=(bundler common-aliases git git-extras jira rails ruby)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin"
@@ -64,6 +64,7 @@ setopt RM_STAR_SILENT
 bindkey -v
 
 export EDITOR='vim'
+export JIRA_URL='https://jira.tools.weblinc.com'
 export PATH=$HOME/.rbenv/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/Library/Haskell/bin:$PATH:/usr/local/opt/go/libexec/bin
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -71,15 +72,17 @@ export PATH=$HOME/.rbenv/bin:.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/Library/H
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+alias aws='ssh -i .ssh/aws-stomcavage.pem ubuntu@52.24.195.249'
 alias bc='bc -l'
 alias date='date +"%A, %B %d, %Y - %r"'
 alias gcm='git commit -m'
 alias gk='open /Applications/Tower.app'
 alias gs='git status'
 alias glast='git diff-tree --no-commit-id --name-only -r `git log -1 --pretty=%H`'
+alias jc='jira `git symbolic-ref --short HEAD`'
 alias pine='alpine'
 
-eval "$(thefuck-alias)"
+eval "$(thefuck --alias)"
 
 # Bring in my non-repo'ed aliases
 source $HOME/my_aliases.sh
@@ -101,4 +104,3 @@ export LS_COLORS
 function killport() { 
   lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
 }
-
