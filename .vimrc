@@ -15,29 +15,47 @@ execute pathogen#infect()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 
-set history=9999     " how many lines to remember in history
-set autoread         " autoload any changes to current file
-set autoindent       " indent next line to match current line
-set ruler            " show current position
-set number           " show line numbers
-set cmdheight=2      " height of command bar
-set magic            " enable regex support
-set showmatch        " show matching brackets
-set mat=2            " tenths of second for matching bracket blink
+set encoding=utf-8   " don't mess with Unicode
 set ffs=dos,mac,unix " default file type ordering
-set expandtab        " use spaces instead of tabs
+
+set modelines=0      " off for security reasons
+
+set autoread         " auto load any changes to current file
+set undofile         " save undo history to a file
+
+set cmdheight=2      " height of command bar
+set cursorline       " highlight line containing the cursor
+set history=9999     " how many lines to remember in history
+set mat=2            " tenths of second for matching bracket blink
+set number           " show line numbers
+set relativenumber   " line numbers are relative to cursor
+set ruler            " show current position in status line
+set showcmd          " show current command in status line
+set showmatch        " show matching brackets
+set showmode         " show current mode in status line
+
+set autoindent       " indent next line to match current line
+set expandtab        " replace tabs with spaces when editing
 set shiftwidth=2     " how may spaces for re-formatting
+set softtabstop=2    " how many spaces to use for soft tabs
 set tabstop=2        " how many spaces for tabs
-set ignorecase       " case-insensitive search with lowercase
-set smartcase        " case-sensitive searches with uppercase
+
 set hlsearch         " highlight search results
+set ignorecase       " case-insensitive search with lowercase
+set magic            " enable regex support
+set smartcase        " case-sensitive searches with uppercase
+
+" Make F1 act as its neighbor if it's accidentally hit
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256         " 256 colors
 syntax enable        " enable syntax highlighting
+set t_Co=256         " 256 colors
 colorscheme monokai  " specify color scheme
 set background=dark  " use a dark version of color scheme
 set lines=999        " create GUI windows with maximum height
