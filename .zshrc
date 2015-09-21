@@ -108,7 +108,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 
 # Start prax for view Rails sites in development mode
-prax start --no-restart
+if which prax > /dev/null; then prax start --no-restart; fi
 
 function killport() { 
   lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9 
