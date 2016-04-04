@@ -90,8 +90,6 @@ alias jc='jira `git symbolic-ref --short HEAD`'
 alias pine='alpine'
 alias vi=`which vim`
 
-eval "$(thefuck --alias)"
-
 # Bring in my non-repo'ed aliases
 source $HOME/my_aliases.sh
 

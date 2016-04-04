@@ -58,8 +58,6 @@ syntax enable        " enable syntax highlighting
 set t_Co=256         " 256 colors
 colorscheme monokai  " specify color scheme
 set background=dark  " use a dark version of color scheme
-set lines=999        " create GUI windows with maximum height
-set columns=999      " create GUI windows with maximum width
 set guifont=Inconsolata:h14
 
 
