@@ -16,7 +16,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 set encoding=utf-8   " don't mess with Unicode
-set ffs=dos,mac,unix " default file type ordering
+set ffs=unix,dos,mac " default file type ordering
 
 set modelines=0      " off for security reasons
 

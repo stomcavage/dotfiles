@@ -52,7 +52,7 @@ ZSH_THEME="stomcavage"
 plugins=(bundler common-aliases git git-extras jira rails ruby)
 
 # User configuration
-export PATH="${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin"
+export PATH="${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:${HOME}/.local/bin"
 
 source $ZSH/oh-my-zsh.sh
 
